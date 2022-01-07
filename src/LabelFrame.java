@@ -22,7 +22,7 @@ public class LabelFrame extends JFrame{
 		this.add(label1); //Adiciona o label1 ao JFrame
 		
 		//Construtor JLabel com string, Icon e argumentos de alinhamento
-		Icon bug = new ImageIcon("src\\bug.png");
+		Icon bug = new ImageIcon(getClass().getResource("Ícones\\bug.png"));
 		label2 = new JLabel("Etiqueta com texto e imagem", bug, SwingConstants.LEFT);
 		label2.setToolTipText("Isto é a etiqueta2");
 		this.add(label2); //Adiciona o label2 ao JFrame
