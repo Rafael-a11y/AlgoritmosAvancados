@@ -54,7 +54,7 @@ public class TextFieldFrame extends JFrame{
 			
 			//Usuário pressionou ENTER no JTextField textField1
 			if(event.getSource() == textField1)
-			string = String.format("textField1: %s", textField1.getText());
+			string = String.format("textField1: %s", event.getActionCommand());
 			
 			//Usuário pressionou ENTER no JTextField textField2
 			else if(event.getSource() == textField2)
