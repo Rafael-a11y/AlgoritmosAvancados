@@ -41,10 +41,10 @@ public class MultipleSelectionFrame extends JFrame
 						// Coloca valores selecionados na copyJList
 						copyJList.setListData(
 								colorJList.getSelectedValuesList().toArray(
-										new String[0]));
-					}
-				}
-			);
+										new String[0])); // O array String de eparâmetro serve para
+					}									 // Para retornar o array de String, pois o 
+				}										 // método sem parâmetro retorna um array
+			);											 // de Object.
 		
 		MultipleSelectionFrame.this.add(copyJButton); //Adiciona o botão de cópia ao JFrame
 		
@@ -53,6 +53,7 @@ public class MultipleSelectionFrame extends JFrame
 		copyJList.setFixedCellWidth(100); // Configura a largura
 		copyJList.setFixedCellHeight(15); // Configura a altura
 		copyJList.setSelectionMode(
+	
 				ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 		MultipleSelectionFrame.this.add(new JScrollPane(copyJList)); // Adiciona lista com JScrollPane
 	}
