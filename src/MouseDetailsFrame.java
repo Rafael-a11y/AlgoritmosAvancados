@@ -34,12 +34,12 @@ public class MouseDetailsFrame extends JFrame
 			details = String.format("Clicado %d vezes", 
 					event.getClickCount());
 			
-			if(event.isMetaDown()) // Botão direito do mouse
+			if(event.getButton() == 3) // Botão direito do mouse
 			{
 				details += " com botão direito do mouse";
 			}
 				
-			else if(event.isAltDown()) // Botão do meio do mouse
+			else if(event.getButton() == 2) // Botão do meio do mouse
 			{
 				details += " com botão central do mouse";
 			}
