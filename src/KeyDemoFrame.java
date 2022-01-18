@@ -57,7 +57,7 @@ public class KeyDemoFrame extends JFrame implements KeyListener
 	private void setLines2and3(KeyEvent event)
 	{
 		line2 = String.format("Esta tecla %s tecla de ação",
-				(event.isActionKey() ? "é uma" : "não é uma"));
+				event.isActionKey() ? "é uma" : "não é uma");
 		
 		String temp = KeyEvent.getKeyModifiersText(event.getModifiers());
 		
