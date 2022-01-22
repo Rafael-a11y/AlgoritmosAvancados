@@ -1,7 +1,7 @@
 package exercicios;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
-import java.awt.GridLayout;
+
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
@@ -15,17 +15,13 @@ public class AlignFrame extends JFrame
 	private JLabel labelX, labelY;
 	private JTextField textFieldX, textFieldY;
 	private JButton buttonOk, buttonCancel, buttonHelp;
-	private FlowLayout layoutFlow;
-	private GridLayout layoutGrid;
-	private BorderLayout layoutBorder;
-	private JPanel panelFlow, panelGrid, panelBorder, panelBorder2, panelBorder3, panelBorder4;
+	private JPanel  panelBorder, panelBorder2, panelBorder3, panelBorder4;
 	
 	AlignFrame()
 	{
 		super("Alinhamento");
 		
-		this.layoutGrid = new GridLayout(1, 4);
-		this.layoutBorder = new BorderLayout();
+		this.setLayout(new FlowLayout());
 		
 		this.box1 = new JCheckBox("1ª checkBox");
 		this.box2 = new JCheckBox("2ª checkBox");
@@ -36,28 +32,19 @@ public class AlignFrame extends JFrame
 		this.textFieldX = new JTextField("8", 5);
 		this.textFieldY = new JTextField("8", 5);
 		
-		this.buttonOk = new JButton("Ok");
-		this.buttonOk.setSize(80, 25);
-		this.buttonOk.setPreferredSize(buttonOk.getSize());
-		
+		this.buttonOk = new JButton("Ok");	
 		this.buttonCancel = new JButton("Cancel");
-		this.buttonCancel.setSize(80, 25);
-		this.buttonCancel.setPreferredSize(buttonCancel.getSize());
-		
 		this.buttonHelp = new JButton("Help");
-		this.buttonHelp.setSize(80, 25);
-		this.buttonHelp.setPreferredSize(buttonHelp.getSize());
 		
 		this.panelBorder = new JPanel();
 		this.panelBorder2 = new JPanel();
 		this.panelBorder3 = new JPanel();
 		this.panelBorder4 = new JPanel();
 		
-		this.setLayout(layoutGrid);
-		this.panelBorder.setLayout(new FlowLayout());
-		this.panelBorder2.setLayout(new FlowLayout());
-		this.panelBorder3.setLayout(new FlowLayout());
-		this.panelBorder4.setLayout(new FlowLayout());
+		this.panelBorder.setLayout(new BorderLayout());
+		this.panelBorder2.setLayout(new BorderLayout());
+		this.panelBorder3.setLayout(new BorderLayout());
+		this.panelBorder4.setLayout(new BorderLayout());
 		
 		this.panelBorder.add(box1, BorderLayout.BEFORE_FIRST_LINE);
 		this.panelBorder.add(box2, BorderLayout.BEFORE_LINE_BEGINS);
