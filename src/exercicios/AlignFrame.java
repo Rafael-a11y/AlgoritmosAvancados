@@ -70,7 +70,7 @@ public class AlignFrame extends JFrame
 	{
 		this.setDefaultCloseOperation(AlignFrame.EXIT_ON_CLOSE);
 		this.setSize(380, 150);
-//		this.setResizable(false);
+		this.setResizable(false);
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
 	}

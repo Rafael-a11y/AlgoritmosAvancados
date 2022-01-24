@@ -1,6 +1,6 @@
 
 
-import java.awt.event.ActionListener;
+import java.awt.event.ActionListener;	
 import java.awt.event.ActionEvent;
 import javax.swing.Box;
 import javax.swing.JFrame;
@@ -24,7 +24,7 @@ public class TextAreaFrame extends JFrame
 				"outra área de texto usando um\nevento externo\n";
 		
 		this.textArea1 = new JTextArea(demo, 10, 15);
-		this.textArea1.setLineWrap(true);
+		this.textArea1.setLineWrap(true); // Para que a quebra de linha ocorra 	quando o texto chegar no canto da JtextArea
 		box.add(new JScrollPane(textArea1)); // Adiciona o JScrollPane à box
 		
 		this.copyJButton = new JButton("Copiar >>>"); // Cria botão de cópia
