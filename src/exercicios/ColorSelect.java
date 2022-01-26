@@ -102,7 +102,7 @@ public class ColorSelect extends JFrame
 		
 		@Override
 		public void actionPerformed(ActionEvent event)
-		{
+		{	
 			// Verifica o JButton pressionado e qual JRadioButton está selecionado através das variáveis booleanas definidas
 			// anteriormente de acordo com o JRadioButton selecionado. Caso nenhuma das duas condições seja satisfeita,
 			// as cores de todos os componentes são definidos com a cor padrão novamente através do método padrao().
