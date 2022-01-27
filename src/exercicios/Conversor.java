@@ -1,6 +1,6 @@
 package exercicios;
 
-import java.awt.Container;	
+import java.awt.Container;		
 import java.awt.FlowLayout;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
@@ -18,16 +18,23 @@ import javax.swing.JPanel;
 
 public class Conversor extends JFrame
 {
-	private final JLabel labelDecisao, labelComando1, labelComando2, labelResultado1,
-	labelResultado2;
+	private final JLabel labelDecisao, labelComando1, labelComando2,
+		labelResultado1, labelResultado2;
+	
 	private final JTextField campo1, campo2;
+	
 	private final JRadioButton radio1, radio2;
+	
 	private final JButton voltar1, voltar2;
+	
 	private final ButtonGroup grupo;
 	private final JPanel painelSuperior1, painelInferior1, painelSuperior2, painelInferior2;
+	
 	private final FlowLayout layoutInferior1, layoutSuperior1, 
 		layoutInferior2, layoutSuperior2;
+	
 	private final Container container1, container2, container3;
+	
 	private final Handler handler;
 	
 	public Conversor()
@@ -82,7 +89,8 @@ public class Conversor extends JFrame
 		this.painelInferior1.add(labelComando1);
 		this.painelInferior1.add(campo1);
 		this.painelInferior1.add(labelResultado1);
-		this.container1.setSize(500, 100);
+//		this.container1.setSize(500, 100);
+		this.container1.setLayout(new BorderLayout());
 		this.container1.add(painelSuperior1, BorderLayout.NORTH);
 		this.container1.add(painelInferior1, BorderLayout.CENTER);
 		
@@ -90,11 +98,13 @@ public class Conversor extends JFrame
 		this.painelInferior2.add(labelComando2);
 		this.painelInferior2.add(campo2);
 		this.painelInferior2.add(labelResultado2);
-		this.container2.setSize(500, 100);
+//		this.container2.setSize(500, 100);
+		this.container2.setLayout(new BorderLayout());
 		this.container2.add(painelSuperior2, BorderLayout.NORTH);
 		this.container2.add(painelInferior2, BorderLayout.CENTER);
 		
 		this.container3 = this.getContentPane();
+		this.container3.setLayout(new FlowLayout());
 		this.container3.add(labelDecisao);
 		this.container3.add(radio1);
 		this.container3.add(radio2);
@@ -102,6 +112,7 @@ public class Conversor extends JFrame
 		this.radio1.addItemListener(handler);
 		this.radio2.addItemListener(handler);
 		this.campo1.addActionListener(handler);
+		
 		this.campo2.addActionListener(handler);
 		this.voltar1.addActionListener(handler);
 		this.voltar2.addActionListener(handler);
@@ -141,8 +152,7 @@ public class Conversor extends JFrame
 				else if(isRadio2)
 				{
 					//  Kelvin = Celsius + 273,15
-					fahrenheit = Float.parseFloat(campo2.getText());
-					celsius = 5.0F / 9.0F * (fahrenheit - 32.0F);
+					celsius = Float.parseFloat(campo2.getText());
 					kelvin = celsius + 273.15F;
 					labelResultado2.setText(String.valueOf(kelvin));
 				}
@@ -151,8 +161,16 @@ public class Conversor extends JFrame
 			{
 				JOptionPane.showMessageDialog(Conversor.this, e.getMessage(),
 						"Erro -> A entrada deve ser numérica", JOptionPane.ERROR_MESSAGE);
-				Conversor.this.campo1.setText("");
-				Conversor.this.labelResultado1.setText("");
+				if(isRadio1)
+				{
+					Conversor.this.campo1.setText("");
+					Conversor.this.labelResultado1.setText("");
+				}
+				else
+				{
+					Conversor.this.campo2.setText("");
+					Conversor.this.labelResultado2.setText("");
+				}
 			}
 			
 		}
@@ -163,7 +181,7 @@ public class Conversor extends JFrame
 			{
 				isRadio1 = true;
 				isRadio2 = false;
-				setContentPane(container1);
+				Conversor.this.setContentPane(container1);
 				validate();
 			}
 			else if(radio2.isSelected())
