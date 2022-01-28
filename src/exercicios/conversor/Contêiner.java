@@ -1,6 +1,6 @@
-package exercicios;
+package exercicios.conversor;
 
-import java.awt.Container;
+import java.awt.Container;		
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
 import javax.swing.JPanel;
@@ -94,6 +94,16 @@ public class Contêiner extends Container
 
 	public final JButton getVoltar() {
 		return voltar;
+	}
+	
+	public final JRadioButton getRadio1()
+	{
+		return this.radio1;
+	}
+	
+	public final JRadioButton getRadio2()
+	{
+		return this.radio2;
 	}
 
 	public final JTextField getCampo() {
