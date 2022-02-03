@@ -1,8 +1,7 @@
-package exercicios.game;
+package exercicios.adivinheONumero;
 
-import java.awt.BorderLayout;
+import java.awt.BorderLayout;	
 import java.awt.FlowLayout;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -42,7 +41,8 @@ public class GameDivinhacao extends JFrame
 		this.setLayout(new BorderLayout());
 		this.superior.setLayout(new FlowLayout());
 		this.inferior.setLayout(new FlowLayout());
-		this.add(superior.add(this.labelComando), BorderLayout.NORTH);
+		this.superior.add(this.labelComando);
+		this.add(superior, BorderLayout.NORTH);
 		this.inferior.add(campo);
 		this.inferior.add(labelDica);
 		this.add(inferior);

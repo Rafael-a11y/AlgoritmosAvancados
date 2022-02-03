@@ -1,4 +1,4 @@
-package exercicios.game;
+package exercicios.adivinheONumero;
 
 public class Pincipal
 {

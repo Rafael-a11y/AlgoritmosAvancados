@@ -1,6 +1,6 @@
-package exercicios.game;
+package exercicios.adivinheONumero;
 
-import java.awt.Color;
+import java.awt.Color;	
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
@@ -20,23 +20,25 @@ public class Handler implements ActionListener
 		janela.getBotao().addActionListener(this);
 	}
 	
-	public void definirCor()
+	public void definirCor(int tentativaAnterior)
 	{
 		numeroUsuario = Integer.parseInt(janela.getCampo().getText());
-		int tentativaAnterior = Math.abs(numeroUsuario - numeroOculto);
+		
 		System.out.println(numeroOculto);
 		
-		if(Math.abs(numeroUsuario - numeroOculto) > tentativaAnterior )
+		if(Math.abs(numeroUsuario - numeroOculto) < tentativaAnterior )
 		{
 			janela.getSuperior().setBackground(Color.RED);
 			janela.getInferior().setBackground(Color.RED);
 			janela.getLabelDica().setText("Está mais quente");
+			janela.repaint();
 		}
-		else if(Math.abs(numeroUsuario - numeroOculto) <= tentativaAnterior)
+		else if(Math.abs(numeroUsuario - numeroOculto) >= tentativaAnterior)
 		{
 			janela.getSuperior().setBackground(Color.BLUE);
 			janela.getInferior().setBackground(Color.BLUE);
 			janela.getLabelDica().setText("Está mais frio");
+			janela.repaint();
 		}
 		
 		adicionarBotao();
@@ -54,7 +56,7 @@ public class Handler implements ActionListener
 			janela.getLabelComando().setText("Deseja jogar mais uma vez?");
 			janela.getLabelDica().setText("Correto!");
 			janela.getInferior().add(janela.getBotao());
-			janela.validate();
+			janela.repaint();
 		}
 	}
 	
@@ -66,8 +68,9 @@ public class Handler implements ActionListener
 		numeroOculto = new Random().nextInt(1000);
 		janela.getInferior().remove(janela.getBotao());
 		janela.getCampo().enable();
-		this.janela.setBackground(cor);
-		janela.validate();
+		janela.getSuperior().setBackground(cor);
+		janela.getInferior().setBackground(cor);
+		janela.repaint();
 		
 		
 	}
@@ -76,7 +79,11 @@ public class Handler implements ActionListener
 	public void actionPerformed(ActionEvent event)
 	{
 		if(event.getSource() instanceof JTextField)
-			definirCor();
+		{
+			int tentativaAnterior = Math.abs(numeroUsuario - numeroOculto);
+			definirCor(tentativaAnterior);
+		}
+			
 		else
 			reiniciarGame();
 	}
