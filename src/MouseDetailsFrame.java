@@ -1,4 +1,4 @@
-// Figura 12.31: MouseDetailsFrame.java
+ // Figura 12.31: MouseDetailsFrame.java
 // Demosntrando cliques de mouse e distinguindo entre botões do mouse.
 import java.awt.BorderLayout;
 import java.awt.event.MouseAdapter;
