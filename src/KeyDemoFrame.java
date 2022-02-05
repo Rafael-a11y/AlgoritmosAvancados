@@ -1,9 +1,11 @@
 
 
-import javax.swing.JFrame;
-import java.awt.event.KeyListener;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JTextArea;
 
 public class KeyDemoFrame extends JFrame implements KeyListener
@@ -27,6 +29,23 @@ public class KeyDemoFrame extends JFrame implements KeyListener
 		this.addKeyListener(this); // Permite que o frame processe os eventos do teclado
 	}
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	// Trata pressionamento de qualquer tecla
 	@Override
 	public void keyPressed(KeyEvent event)
@@ -34,8 +53,8 @@ public class KeyDemoFrame extends JFrame implements KeyListener
 		line1 = String.format("Tecla pressionada: %s",
 				KeyEvent.getKeyText(event.getKeyCode())); // Mostra a tecla pressionada
 		this.setLines2and3(event); // Configura a saída das linhas dois e três
+		System.out.printf("keyPressed: %s\n", KeyEvent.getKeyText(event.getKeyCode()));
 	}
-	
 	// Trata liberação de qualquer tecla
 	@Override
 	public void keyReleased(KeyEvent event)
@@ -43,6 +62,7 @@ public class KeyDemoFrame extends JFrame implements KeyListener
 		line1 = String.format("Tecla liberada: %s", 
 				KeyEvent.getKeyText(event.getKeyCode())); // Mostra a tecla liberada
 		setLines2and3(event); // Configura as saídas das linhas 2 e 3
+		System.out.printf("keyReleased: %s\n", KeyEvent.getKeyText(event.getKeyCode()));
 	}
 	
 	// Trata pressionamento de uma tecla QUE NÃO SEJA DE AÇÃO
@@ -51,7 +71,24 @@ public class KeyDemoFrame extends JFrame implements KeyListener
 	{
 		line1 = String.format("Tecla digitada (não é de ação): %s", event.getKeyChar());
 		setLines2and3(event); // Configura as saídas das linhas 2 e 3
+		System.out.printf("keyTyped: %s\n", event.getKeyChar());
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	 // Configura as saídas das linhas 2 e 3
 	private void setLines2and3(KeyEvent event)
