@@ -4,25 +4,44 @@ import javax.swing.JButton;
 
 public class Botao extends JButton 
 {
-	private String texto;
-	
+	private String codigoChave;
+	private char codigoChar;
 	public Botao()
 	{
 		
 	}
 	
-	public Botao(String texto)
+	public Botao(String texto, String chaveString, char chaveCaracter )
 	{
-		this.texto = texto;
-		setText(this.texto);
+		setText(texto);
+		codigoChave = chaveString;
+		codigoChar = chaveCaracter;
 	}
 	
-	public String getTexto()
+	
+	public Botao(String texto, String chaveString)
 	{
-		return texto;
+		setText(texto);
+		codigoChave = chaveString;
 	}
-	public void setTexto(String newTexto)
+	
+	public String getCodigoChave() 
 	{
-		texto = newTexto;
+		return codigoChave;
+	}
+	
+	public void setCodigoChave(String chaveString)
+	{
+		codigoChave = chaveString;
+	}
+	
+	public char getCodigoChar()
+	{
+		return codigoChar;
+	}
+	
+	public void setCodigoChar(char chaveCaracter)
+	{
+		codigoChar = chaveCaracter;
 	}
 }
