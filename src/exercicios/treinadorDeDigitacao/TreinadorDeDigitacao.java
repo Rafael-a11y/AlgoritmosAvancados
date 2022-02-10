@@ -26,6 +26,8 @@ public class TreinadorDeDigitacao extends JFrame
 	private final Painel painel1, painel2, painel3, painel4, painel5, painel6;
 	private final JPanel panel;
 	private final List<Painel> paineis;
+	private final Manipulador manipulador;
+	
 	public TreinadorDeDigitacao()
 	{
 		super("Treinador de Digitação");
@@ -35,18 +37,18 @@ public class TreinadorDeDigitacao extends JFrame
 		areaDeTexto = new JTextArea(10, 10);
 		barraDeRolagem = new JScrollPane(areaDeTexto);
 		rotuloDeExplicacao = new JLabel(" Cada botão pressionado será destacado na tela"
-				+ ", tendo sua cor mudada para vermelho.");
+				+ ", tendo sua cor mudada para laranja.");
 		rotuloDeExplicacao2 = new JLabel(" Obs: caso você tente usar o mouse"
 				+ " para interagir com os botões, nenhuma funcionalidade será ativada.");
 		painel1 = new Painel(new FlowLayout(FlowLayout.LEFT), new String[] {"\'", "1", "2", "3", "4", "5", "6",
 				"7", "8", "9", "0", "-", "=", "Backspace"}, new String[] {"Quote", "1", "2", "3", "4", "5", "6", "7", "8",
 						"9", "0", "Minus", "Equals", "Backspace"});
 		painel2 = new Painel(new FlowLayout(FlowLayout.LEFT), new String[] {"Tab", "Q", "W", "E", "R", "T",
-				"Y", "U", "I", "O", "P", "[", "]", "\\"}, new String[] {null, "Q", "W", "E", "R", "T", "Y", "U", "I", "O",
+				"Y", "U", "I", "O", "P", "[", "]", "\\"}, new String[] {"Tab", "Q", "W", "E", "R", "T", "Y", "U", "I", "O",
 						"P", "Open Bracket", "Close Bracket", "Back Slash"});
 		painel3 = new Painel(new FlowLayout(FlowLayout.LEFT), new String[] {"Caps", "A", "S", "D", "F",
-				"G","H", "J", "K", "L", "Ç", "=", "Enter"},new String[] {"Caps Lock", "A", "S", "D", "F", "G", "H", "J",
-						"K", "L", "Unknown keyCode: 0x0", "Equals", "Enter"});
+				"G","H", "J", "K", "L", "Ç", "~", "Enter"},new String[] {"Caps Lock", "A", "S", "D", "F", "G", "H", "J",
+						"K", "L", "Unknown keyCode: 0x0", "Dead Tilde", "Enter"});
 		painel4 = new Painel(new FlowLayout(FlowLayout.LEFT), new String[] {"Shift", "Z", "X", "C", "V", "B",
 				"N", "M", ",", ".", ";", "^"}, new String[] {"Shift", "Z", "X", "C", "V","B", "N", "M", "Comma", "Period",
 			"Semicolon", "Up"});
@@ -56,6 +58,7 @@ public class TreinadorDeDigitacao extends JFrame
 		painel5.alterarTamanhoHorizontalDoBotao("Space", 245);
 		painel5.add(painel6);
 		panel = new JPanel(new GridLayout(2, 1));
+		manipulador = new Manipulador(this);
 		adicionarPaineisALista();
 		organizarComponentes();
 		iniciarGUI();
@@ -92,7 +95,7 @@ public class TreinadorDeDigitacao extends JFrame
 		setLocationRelativeTo(null);
 		setSize(716, 350);
 		setBackground(Color.WHITE);
-		Manipulador manipulador = new Manipulador(this);
+		setResizable(false);
 		setVisible(true);
 	}
 
@@ -126,5 +129,9 @@ public class TreinadorDeDigitacao extends JFrame
 		return paineis;
 	}
 	
+	public JTextArea getAreaDeTexto()
+	{
+		return areaDeTexto;
+	}
 	
 }

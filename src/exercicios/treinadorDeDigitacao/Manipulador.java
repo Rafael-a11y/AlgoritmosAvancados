@@ -12,16 +12,9 @@ public class Manipulador implements KeyListener
 	public Manipulador(TreinadorDeDigitacao janela)
 	{
 		this.janela = janela;
-		adicionarOuvintes();
+		this.janela.getAreaDeTexto().addKeyListener(this);
 	}
 	
-	private void adicionarOuvintes()
-	{
-		for(int count = 0; count < janela.getPaineis().size(); count ++)
-		{
-			janela.getPaineis().get(count).addKeyListener(this);
-		}
-	}
 
 	@Override
 	public void keyPressed(KeyEvent e) 
@@ -29,6 +22,11 @@ public class Manipulador implements KeyListener
 		System.out.printf("keyPressed: %s\n", KeyEvent.KEY_PRESSED);
 		System.out.printf("keyPressed: %s\n", KeyEvent.getKeyText(e.getKeyCode()));
 		String codigo = KeyEvent.getKeyText(e.getKeyCode());
+		
+		for(int count = 0; count < janela.getPaineis().size(); count ++)
+			for(int countI = 0; countI < janela.getPaineis().get(count).getBotoes().size(); countI++)
+				janela.getPaineis().get(count).getBotoes().get(countI).setBackground(Color.WHITE);
+		
 		for(int countPaineis = 0; countPaineis < janela.getPaineis().size(); countPaineis++)
 		{
 			for(int countBotoes = 0; countBotoes < janela.getPaineis().get(countPaineis).getBotoes().size(); countBotoes++)
@@ -45,13 +43,14 @@ public class Manipulador implements KeyListener
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("keyTyped");
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
+		System.out.println("keyReleased");
 	}
 	
 }
+ 
