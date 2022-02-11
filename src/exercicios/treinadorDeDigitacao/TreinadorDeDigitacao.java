@@ -46,7 +46,7 @@ public class TreinadorDeDigitacao extends JFrame
 		painel2 = new Painel(new FlowLayout(FlowLayout.LEFT), new String[] {"Tab", "Q", "W", "E", "R", "T",
 				"Y", "U", "I", "O", "P", "[", "]", "\\"}, new String[] {"Tab", "Q", "W", "E", "R", "T", "Y", "U", "I", "O",
 						"P", "Open Bracket", "Close Bracket", "Back Slash"});
-		painel3 = new Painel(new FlowLayout(FlowLayout.LEFT), new String[] {"Caps", "A", "S", "D", "F",
+		painel3 = new Painel(new FlowLayout(FlowLayout.LEFT), new String[] {"Caps Lock", "A", "S", "D", "F",
 				"G","H", "J", "K", "L", "Ç", "~", "Enter"},new String[] {"Caps Lock", "A", "S", "D", "F", "G", "H", "J",
 						"K", "L", "Unknown keyCode: 0x0", "Dead Tilde", "Enter"});
 		painel4 = new Painel(new FlowLayout(FlowLayout.LEFT), new String[] {"Shift", "Z", "X", "C", "V", "B",
@@ -93,9 +93,9 @@ public class TreinadorDeDigitacao extends JFrame
 	{
 		setDefaultCloseOperation(TreinadorDeDigitacao.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
-		setSize(716, 350);
+		setSize(710, 350);
 		setBackground(Color.WHITE);
-		setResizable(false);
+		
 		setVisible(true);
 	}
 

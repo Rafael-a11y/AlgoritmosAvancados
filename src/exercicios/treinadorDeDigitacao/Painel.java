@@ -1,14 +1,11 @@
 package exercicios.treinadorDeDigitacao;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.LayoutManager;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class Painel extends JPanel 
@@ -20,7 +17,6 @@ public class Painel extends JPanel
 		setLayout(layout);
 		botoes = new ArrayList<>();
 		criarBotoes(arrayDeNomes, arrayDeIdentificadores);
-//		setBorder(BorderFactory.createLineBorder(Color.BLACK));
 	}
 	
 	public Painel(LayoutManager layout, String texto, String id, int pixelsHorizontais)
@@ -48,7 +44,7 @@ public class Painel extends JPanel
 	{
 		for(int count = 0; count < getComponentCount(); count ++)
 		{
-			if(getComponent(count) == botoes.get(count) && botoes.get(count).getText().equalsIgnoreCase(texto))
+			if(botoes.get(count).getText().equalsIgnoreCase(texto))
 			{
 				botoes.get(count).setPreferredSize(new Dimension(pixelsHorizontais, 26));
 				return;

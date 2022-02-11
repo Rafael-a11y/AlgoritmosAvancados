@@ -19,23 +19,29 @@ public class Manipulador implements KeyListener
 	@Override
 	public void keyPressed(KeyEvent e) 
 	{
-		System.out.printf("keyPressed: %s\n", KeyEvent.KEY_PRESSED);
-		System.out.printf("keyPressed: %s\n", KeyEvent.getKeyText(e.getKeyCode()));
-		String codigo = KeyEvent.getKeyText(e.getKeyCode());
-		
-		for(int count = 0; count < janela.getPaineis().size(); count ++)
-			for(int countI = 0; countI < janela.getPaineis().get(count).getBotoes().size(); countI++)
-				janela.getPaineis().get(count).getBotoes().get(countI).setBackground(Color.WHITE);
+		System.out.printf("keyPressed -> KEY_PRESSED: %s\n", KeyEvent.KEY_PRESSED);
+		System.out.printf("keyPressed -> keycode: %s\n", KeyEvent.getKeyText(e.getKeyCode()));
+		System.out.println("keyPressed -> keyChar: " + e.getKeyChar() );
+		if(KeyEvent.getKeyText(e.getKeyCode()) == "Dead Tilde")
+		{
+			e.setKeyChar('~');
+		}
 		
 		for(int countPaineis = 0; countPaineis < janela.getPaineis().size(); countPaineis++)
 		{
-			for(int countBotoes = 0; countBotoes < janela.getPaineis().get(countPaineis).getBotoes().size(); countBotoes++)
+			for(int countBotoes = 0; countBotoes < janela.getPaineis().get(countPaineis)
+					.getBotoes().size(); countBotoes++)
 			{
-				if(janela.getPaineis().get(countPaineis).getBotoes().get(countBotoes).getCodigoChave().equalsIgnoreCase(codigo))
+				if(janela.getPaineis().get(countPaineis).getBotoes().get(countBotoes)
+						.getText().equalsIgnoreCase(KeyEvent.getKeyText(e.getKeyCode()))
+						|| janela.getPaineis().get(countPaineis).getBotoes().get(countBotoes)
+						.getText().equalsIgnoreCase(String.valueOf(e.getKeyChar())))
 				{
-					janela.getPaineis().get(countPaineis).getBotoes().get(countBotoes).setBackground(Color.ORANGE);
+					janela.getPaineis().get(countPaineis).getBotoes().get(countBotoes)
+					.setBackground(Color.ORANGE);
 					return;
 				}
+				
 			}
 		}
 	}
@@ -50,7 +56,24 @@ public class Manipulador implements KeyListener
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
 		System.out.println("keyReleased");
-	}
+		System.out.println("-----------------------------------------------");
+		for(int countPaineis = 0; countPaineis < janela.getPaineis().size(); countPaineis++)
+		{
+			for(int countBotoes = 0; countBotoes < janela.getPaineis().get(countPaineis)
+					.getBotoes().size(); countBotoes++)
+			{
+				if(janela.getPaineis().get(countPaineis).getBotoes().get(countBotoes)
+						.getText().equalsIgnoreCase(KeyEvent.getKeyText(e.getKeyCode())) 
+						|| janela.getPaineis().get(countPaineis).getBotoes().get(countBotoes)
+						.getText().equalsIgnoreCase(String.valueOf(e.getKeyChar())))
+				{
+					janela.getPaineis().get(countPaineis).getBotoes().get(countBotoes)
+					.setBackground(Color.WHITE);
+					return;
+				}
+			}
 	
+		}
+	}
 }
  

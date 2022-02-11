@@ -30,22 +30,6 @@ public class KeyDemoFrame extends JFrame implements KeyListener
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	// Trata pressionamento de qualquer tecla
 	@Override
 	public void keyPressed(KeyEvent event)
@@ -73,21 +57,6 @@ public class KeyDemoFrame extends JFrame implements KeyListener
 		setLines2and3(event); // Configura as saídas das linhas 2 e 3
 		System.out.printf("keyTyped: %s\n", event.getKeyChar());
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	 // Configura as saídas das linhas 2 e 3
