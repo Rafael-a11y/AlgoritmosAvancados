@@ -57,6 +57,10 @@ public class Manipulador implements KeyListener
 		// TODO Auto-generated method stub
 		System.out.println("keyReleased");
 		System.out.println("-----------------------------------------------");
+		if(KeyEvent.getKeyText(e.getKeyCode()) == "Dead Tilde")
+		{
+			e.setKeyChar('~');
+		}
 		for(int countPaineis = 0; countPaineis < janela.getPaineis().size(); countPaineis++)
 		{
 			for(int countBotoes = 0; countBotoes < janela.getPaineis().get(countPaineis)
@@ -74,6 +78,11 @@ public class Manipulador implements KeyListener
 			}
 	
 		}
+	}
+	
+	private void textAreaClicked(java.awt.event.MouseEvent event)
+	{
+		janela.getAreaDeTexto().enable(false);
 	}
 }
  
